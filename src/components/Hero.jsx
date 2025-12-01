@@ -18,15 +18,16 @@ const Hero = () => {
         Merhaba, Ben <span style={{ color: '#646cff' }}>Hamza Sezer</span>
       </h1>
       
-      {/* GÜNCELLENEN KISIM BURASI */}
+      {/* GÜNCELLENEN KISIM: <br /> etiketi eklendi */}
       <h2 style={{ 
-        fontSize: '1.3rem', // Yazı uzun olduğu için fontu bir tık küçülttük
+        fontSize: '1.3rem', 
         color: '#aaa', 
         marginBottom: '2rem', 
-        maxWidth: '900px',  // Geniş ekranlarda çok yayılmasın
-        lineHeight: '1.5'   // Alt satıra geçerse satırlar birbirine girmesin
+        maxWidth: '900px',
+        lineHeight: '1.6' // Satırlar arası boşluk rahat olsun
       }}>
-        Bilgisayar Mühendisi & AI Geliştirici & Web Tasarımcı & Oyun Geliştiricisi & Yazılım Mühendisi & Veri Analisti
+        Bilgisayar Mühendisi & AI Geliştirici & Web Tasarımcı & Oyun Geliştiricisi <br />
+        & Yazılım Mühendisi & Veri Analisti
       </h2>
       
       <p style={{ maxWidth: '700px', lineHeight: '1.6', fontSize: '1.1rem', color: '#ccc' }}>
