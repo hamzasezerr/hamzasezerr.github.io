@@ -43,7 +43,17 @@ const Hero = () => {
             SİSTEMLERİ İNCELE [ENTER]
           </Link>
 
-          <Link to="/contact" style={secondaryBtnStyle}>
+          {/* PDF Asset Butonu */}
+          <a 
+            href="/Hamza_SezerCV.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={secondaryBtnStyle}
+          >
+            ÖZGEÇMİŞİ İNDİR [PDF]
+          </a>
+
+          <Link to="/contact" style={contactBtnStyle}>
             BAĞLANTI KUR [SHIFT]
           </Link>
         </div>
