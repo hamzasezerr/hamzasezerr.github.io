@@ -53,7 +53,7 @@ const Hero = () => {
             ÖZGEÇMİŞİ İNDİR [PDF]
           </a>
 
-          <Link to="/contact" style={contactBtnStyle}>
+          <Link to="/contact" style={secondaryBtnStyle}>
             BAĞLANTI KUR [SHIFT]
           </Link>
         </div>
