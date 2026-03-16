@@ -39,9 +39,9 @@ const Hero = () => {
         </p>
 
         <div style={buttonGroupStyle}>
-          <a href="#projects" style={primaryBtnStyle}>
+          <Link to="/projects" style={primaryBtnStyle}>
             SİSTEMLERİ İNCELE [ENTER]
-          </a>
+          </Link>
 
           <Link to="/contact" style={secondaryBtnStyle}>
             BAĞLANTI KUR [SHIFT]
