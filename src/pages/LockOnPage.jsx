@@ -5,138 +5,102 @@ const LockOnPage = () => {
   return (
     <div style={{ 
       padding: '4rem 2rem', 
-      backgroundColor: '#0a0a0a', // Çok koyu gri/siyah
-      color: '#ececec', 
+      backgroundColor: '#0f172a', // Premium koyu lacivert
+      color: '#f8fafc', 
       minHeight: '100vh',
-      fontFamily: 'Courier New, Courier, monospace' // Daha teknik/kod odaklı bir font
+      fontFamily: 'Segoe UI, sans-serif'
     }}>
       {/* Geri Dönüş Butonu */}
-      <Link to="/" style={{ 
-        color: '#ff4d4d', 
-        textDecoration: 'none', 
-        fontWeight: 'bold',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        marginBottom: '2rem'
-      }}>
-        ← Return to Tactical Overview
+      <Link to="/" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2rem' }}>
+        ← Back to Portfolio
       </Link>
       
-      {/* Başlık ve Sistem Özeti */}
-      <header style={{ marginBottom: '3rem', borderBottom: '1px solid #330000', paddingBottom: '2rem' }}>
-        <h1 style={{ fontSize: '3rem', color: '#ff4d4d', marginBottom: '1rem', letterSpacing: '2px' }}>
-          Target Lock-On Component
-        </h1>
-        <p style={{ fontSize: '1.2rem', color: '#a0a0a0', maxWidth: '800px', lineHeight: '1.6' }}>
-          A modular targeting solution for combat-oriented games. This component handles automated enemy detection, 
-          smooth camera interpolation (RInterp), and priority-based target switching within a defined radius.
+      <header style={{ marginBottom: '3rem', borderBottom: '1px solid #1e293b', paddingBottom: '2rem' }}>
+        <h1 style={{ fontSize: '3rem', color: '#38bdf8' }}>Target Lock-On Component</h1>
+        <p style={{ fontSize: '1.2rem', color: '#94a3b8', maxWidth: '800px' }}>
+          A sophisticated modular targeting system utilizing Multi-Sphere Tracing and Dot Product calculations to achieve precise enemy acquisition.
         </p>
       </header>
 
-      {/* Teknik Detaylar ve Görseller */}
       <section style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
         
-        {/* Detection & Range Logic */}
+        {/* BÖLÜM 1: Yeni Oyun İçi Görsel (Eski Adım 1) */}
         <div style={sectionStyle}>
           <div style={textSide}>
-            <h2 style={stepTitle}>Detection & Sphere Trace Logic</h2>
+            <h2 style={stepTitle}>1. Target Selection (In-Game)</h2>
             <p style={stepText}>
-              The system utilizes a <strong>Sphere Trace</strong> or <strong>Multi-Overlap</strong> check to identify 
-              potential targets. It filters actors by Class or Tag, ensuring the player only locks onto valid hostiles 
-              within the operational range.
+              The system provides a clear visual interface for target acquisition. The player's current focus is identified by a <strong>Nişangah</strong>, while other potential targets (hostile actors) are highlighted with a <strong>Red Cross</strong>. This establishes a clean and intuitive targeting feedback loop for the player.
             </p>
           </div>
           <div style={imageSide}>
-            <img src="/assets/lockon_trace.png" alt="Trace Logic" style={imgStyle} />
+            {/* Görselin assets klasöründe lockon_gameplay.png (image_4.png) olduğundan emin ol */}
+            <img src="/assets/lockon1.png" alt="Target Selection UI" style={imgStyle} />
           </div>
         </div>
 
-        {/* Camera Interpolation */}
+        {/* BÖLÜM 2: Interpolation (Eski Adım 2) */}
         <div style={sectionStyle}>
           <div style={textSide}>
-            <h2 style={stepTitle}>Camera Interpolation (RInterp)</h2>
+            <h2 style={stepTitle}>2. Camera Interpolation (RInterp)</h2>
             <p style={stepText}>
-              To prevent jarring camera movements, the component uses <strong>RInterp To</strong> for smooth rotation 
-              towards the target. This ensures the player maintains visual contact without losing orientation 
-              during fast-paced combat.
+              To provide a smooth user experience, the component uses <strong>RInterp To</strong> logic. This prevents jarring camera snaps and ensures the camera gracefully tracks the target's movement while maintaining player orientation during fast-paced combat maneuvers.
             </p>
           </div>
           <div style={imageSide}>
-            <img src="/assets/lockon_camera.png" alt="Camera Smoothness" style={imgStyle} />
+            {/* Görselin assets klasöründe lockon2.png olduğundan emin ol */}
+            <img src="/assets/lockon2.png" alt="Camera Smoothness" style={imgStyle} />
           </div>
         </div>
 
-        {/* UI & Indicator Integration */}
+        {/* BÖLÜM 3: Teknik Blueprint (Eski Adım 1) */}
         <div style={sectionStyle}>
           <div style={textSide}>
-            <h2 style={stepTitle}>Dynamic UI Indicators</h2>
+            <h2 style={stepTitle}>3. Detection & Sphere Trace</h2>
             <p style={stepText}>
-              Includes a screen-space <strong>Target Indicator</strong> that stays pinned to the enemy's location. 
-              The indicator dynamically updates its state based on range, visibility, and lock status.
+              The system utilizes a <strong>Multi-Sphere Trace</strong> to identify potential targets in a 3D radius. By filtering actors via Class and Tags, it ensures only valid hostiles are considered. The <strong>Dot Product</strong> calculation then prioritizes enemies within the player's central Field of View (FOV).
             </p>
           </div>
           <div style={imageSide}>
-            <img src="/assets/lockon_ui.png" alt="Target UI" style={imgStyle} />
+            {/* Görselin assets klasöründe lockon1.png olduğundan emin ol */}
+            <img src="/assets/lockon3.png" alt="Detection Logic Blueprint" style={imgStyle} />
           </div>
         </div>
 
       </section>
 
       {/* Teknik Not */}
-      <footer style={{ marginTop: '5rem', padding: '2rem', backgroundColor: '#1a0505', borderRadius: '15px', borderLeft: '5px solid #ff4d4d' }}>
-        <h3 style={{ color: '#ff4d4d', marginBottom: '10px' }}>Tactical Performance Notations</h3>
-        <p style={{ color: '#888', fontStyle: 'italic' }}>
-          Fully modular architecture. Can be integrated into any Pawn or Character via Actor Component. 
-          Optimized for low CPU overhead by using timer-based trace updates instead of per-tick detection.
+      <footer style={{ marginTop: '5rem', padding: '2rem', backgroundColor: '#1e293b', borderRadius: '15px', borderLeft: '5px solid #38bdf8' }}>
+        <h3 style={{ color: '#38bdf8', marginBottom: '10px' }}>Component Architecture</h3>
+        <p style={{ color: '#cbd5e1', fontStyle: 'italic' }}>
+          This logic is built as a standalone <strong>Actor Component</strong>, making it 100% modular 
+          and ready to be dropped into any character or vehicle Pawn within Unreal Engine 5 projects.
         </p>
       </footer>
     </div>
   );
 };
 
-// --- CSS-in-JS Styles ---
-const sectionStyle = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '2rem',
-  alignItems: 'center',
-  padding: '2rem',
-  backgroundColor: '#111',
+// --- CSS-in-JS Styles (Tam Uyumlu) ---
+const sectionStyle = { 
+  display: 'flex', 
+  flexWrap: 'wrap', 
+  gap: '2rem', 
+  alignItems: 'center', 
+  padding: '2rem', 
+  backgroundColor: '#1e293b', 
   borderRadius: '20px',
-  border: '1px solid #222'
+  border: '1px solid #334155'
 };
 
-const textSide = {
-  flex: '1',
-  minWidth: '300px'
-};
-
-const imageSide = {
-  flex: '1.5',
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-  gap: '15px',
-  minWidth: '300px'
-};
-
-const stepTitle = {
-  color: '#ff4d4d',
-  marginBottom: '1rem',
-  fontSize: '1.5rem'
-};
-
-const stepText = {
-  color: '#a0a0a0',
-  lineHeight: '1.6',
-  fontSize: '1.05rem'
-};
-
-const imgStyle = {
-  width: '100%',
-  borderRadius: '10px',
-  border: '1px solid #330000',
-  boxShadow: '0 0 20px rgba(255, 77, 77, 0.1)'
+const textSide = { flex: '1', minWidth: '300px' };
+const imageSide = { flex: '1.5', display: 'flex', flexDirection: 'column' };
+const stepTitle = { color: '#38bdf8', marginBottom: '1rem', fontSize: '1.5rem' };
+const stepText = { color: '#cbd5e1', lineHeight: '1.8', fontSize: '1.1rem' };
+const imgStyle = { 
+  width: '100%', 
+  borderRadius: '10px', 
+  border: '1px solid #475569', 
+  boxShadow: '0 4px 20px rgba(0,0,0,0.3)' 
 };
 
 export default LockOnPage;
